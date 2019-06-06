@@ -1,10 +1,11 @@
 ---
 title: "Work HappieR - Weekly sales report"
-author: "Eline Krijkamp"
+author: "Eline Krijkamp for RLadies Rotterdam"
 date: "6-6-2019"
 output:
   html_document: default
   pdf_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -30,12 +31,21 @@ sales_summary   <- read.csv("../data/sales_summary.csv")
 
 ### Table
 Below is a table with the total number of units sold per widget.
+
+
 ```{r tables-sales_summary, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE}
 knitr::kable(sales_summary, format = 'html', caption = 'Total units sold per product')
 ```
 
+```{r, eval = TRUE, echo = FALSE, warning = FALSE}
+sales_summary_arranged <- arrange(sales_summary, by = -count)
+highest_count <- sales_summary_arranged$count[1] 
+```
+
+The higest count is `r highest_count`.
+
 ### Chart
-Here is a chart with the same data.
+#### Here is a chart with the same data.
 ```{r echo = FALSE, eval = TRUE, warning = FALSE, fig.height = 4, message = FALSE}
 # Plot a bar chart of total sales per product.
 ggplot(sales_summary, aes(x = widget, y = count / 1000000)) +
@@ -63,11 +73,25 @@ knitr::kable(sales_weekly_best, format = 'html', caption = 'Best week for each c
 ```
 
 ### Detailed graphs
+
+#### Weekly sales for the United States
+
 ```{r, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE}
-country_value <- "USA"
 PlotWeeklySalesPerCountry(country_value = "USA")  
+```
+
+#### Weekly sales for the United Kingdom
+```{r, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE}
 PlotWeeklySalesPerCountry(country_value = "GBR")  
+```
+
+#### Weekly sales for France 
+```{r, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE}
 PlotWeeklySalesPerCountry(country_value = "FRA")  
+```
+
+#### Weekly sales for South Africa
+```{r, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE}
 PlotWeeklySalesPerCountry(country_value = "ZAF")  
 ``` 
 
