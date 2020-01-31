@@ -11,5 +11,5 @@ All materials we used during the workshop can be found in this repository and th
 Link to the presentation: https://rladies-rdam-workhappier.netlify.com/
 
 
-The materials used to give this workshop are now published in Medical Decision Making. 
-https://journals.sagepub.com/doi/full/10.1177/0272989X19893973
+The materials used to give this workshop are now published in PharmacoEconomics. 
+https://www.ncbi.nlm.nih.gov/pubmed/31549359
